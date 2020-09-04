@@ -83,25 +83,18 @@ bot.onTextMessage(/^delete:/i, (message, response) => {
 });
 
 bot.onTextMessage(/./, (message, response) => {
+
     const text = message.text.toLowerCase();
+
+    console.log('MESSAGE:', message);
     
-    switch(text){
-        case "view":
-            viewTasks(response);
-            break;        
+    switch(text){                
         case "who am i":
             whoAmI(message, response);
-            break;
-        case "new":
-        case "add":
-            addTask(message, response);
-            break;
+            break;       
         default:
-            if(addNewTask){
-                saveTask(message, response);
-            }else{
-                unknownCommand(message, response);
-            }
+            defaultReply(message, response);
+            
                 
             
     }
@@ -117,7 +110,7 @@ const whoAmI = (message, response) => {
     response.send(new TextMessage(`Hello ${response.userProfile.name}! It's so nice to meet you`));
 }
 
-function unknownCommand(message, response){
+function defaultRepy(message, response){
     response.send(new TextMessage(`I don't quite understand your command`)).then(()=>{
                 return response.send(new TextMessage(`To view tasks, type 'view'`)).then(()=>{
                    return response.send(new TextMessage(`To add new task, type 'new'`)).then(()=>{
