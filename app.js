@@ -46,7 +46,7 @@ let db = firebase.firestore();
 // Creating the bot with access token, name and avatar
 const bot = new ViberBot({
     authToken: process.env.AUTH_TOKEN, // <--- Paste your token here
-    name: "To Do App",  // <--- Your bot name here
+    name: "Viber Bot",  // <--- Your bot name here
     avatar: "http://api.adorable.io/avatar/200/isitup" // It is recommended to be 720x720, and no more than 100kb.
 });
 
@@ -74,13 +74,7 @@ bot.onSubscribe(response => {
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>
     response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am robot`)));
 
-bot.onTextMessage(/^hi|hello$/i, (message, response) =>
-    response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am robot`)));
 
-bot.onTextMessage(/^delete:/i, (message, response) => {    
-    let taskId = message.text.slice(7);
-    deleteTask(taskId, response);
-});
 
 bot.onTextMessage(/./, (message, response) => {
 
@@ -88,7 +82,10 @@ bot.onTextMessage(/./, (message, response) => {
 
     console.log('MESSAGE:', message);
     
-    switch(text){                
+    switch(text){
+        case "text":
+            textDemo(message, response);
+            break;              
         case "who am i":
             whoAmI(message, response);
             break;       
@@ -110,10 +107,15 @@ const whoAmI = (message, response) => {
     response.send(new TextMessage(`Hello ${response.userProfile.name}! It's so nice to meet you`));
 }
 
+const textDemo = (message, response) => {
+    let message = "Here is sample text message";
+    response.send(new TextMessage(message));
+}
+
 function defaultReply(message, response){
     response.send(new TextMessage(`I don't quite understand your command`)).then(()=>{
-                return response.send(new TextMessage(`To view tasks, type 'view'`)).then(()=>{
-                   return response.send(new TextMessage(`To add new task, type 'new'`)).then(()=>{
+                return response.send(new TextMessage(`Another line of text`)).then(()=>{
+                   return response.send(new TextMessage(`Another another line of text`)).then(()=>{
                     return response.send(new TextMessage(`If you forget who you are, type 'who am i'`));
                    }); 
                 });
