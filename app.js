@@ -16,7 +16,7 @@ const RichMediaMessage = require('viber-bot').Message.RichMedia;
 
 const app = express(); 
 
-app.use("/viber/webhook", bot.middleware());
+
 
 app.get('/test',function(req,res){    
     res.send('your app is up and running');
@@ -48,6 +48,7 @@ const bot = new ViberBot({
     avatar: "http://api.adorable.io/avatar/200/isitup" // It is recommended to be 720x720, and no more than 100kb.
 });
 
+app.use("/viber/webhook", bot.middleware());
 
 app.listen(process.env.PORT || 8080, () => {
     console.log(`webhook is listening`);
