@@ -88,7 +88,10 @@ bot.onTextMessage(/./, (message, response) => {
             break; 
         case "rich media":
             richMediaReply(message, response);
-            break;             
+            break;  
+        case "keyboard":
+            keyboardReply(message, response);
+            break;           
         case "who am i":
             whoAmI(message, response);
             break;       
@@ -202,6 +205,29 @@ const richMediaReply = (message, response) => {
    };
 
     response.send(new RichMediaMessage(bot_message));
+}
+
+
+const keyboardReply = (message, response) => {
+    let SAMPLE_KEYBOARD = {
+        "Type": "keyboard",
+        "Revision": 1,
+        "Buttons": [
+            {
+                "Columns": 3,
+                "Rows": 2,
+                "BgColor": "#e6f5ff",
+                "BgMedia": "http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg",
+                "BgMediaType": "picture",
+                "BgLoop": true,
+                "ActionType": "reply",
+                "ActionBody": "Yes"
+            }
+        ]
+    };
+
+    let bot_message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
+    response.send(bot_message);
 }
 
 
