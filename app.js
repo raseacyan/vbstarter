@@ -12,6 +12,7 @@ const BotEvents = require('viber-bot').Events;
 const TextMessage = require('viber-bot').Message.Text;
 const RichMediaMessage = require('viber-bot').Message.RichMedia;
 const KeyboardMessage = require('viber-bot').Message.Keyboard;
+const PictureMessage = require('viber-bot').Message.Picture;
 
 
 
@@ -87,6 +88,9 @@ bot.onTextMessage(/./, (message, response) => {
         case "text":
             textReply(message, response);
             break; 
+        case "picture":
+            pictureReply(message, response);
+            break;
         case "rich media":
             richMediaReply(message, response);
             break;  
@@ -117,6 +121,12 @@ const whoAmI = (message, response) => {
 const textReply = (message, response) => {
     let bot_message = `You have sent message: ${message.text}`;
     response.send(new TextMessage(bot_message));
+}
+
+const pictureReply = (message, response) => {
+    const bot_message = new PictureMessage('https://upload.wikimedia.org/wikipedia/en/6/69/Effy_Stonem.jpg');
+
+    response.send(new PictureMessage(bot_message));
 }
 
 const richMediaReply = (message, response) => {
