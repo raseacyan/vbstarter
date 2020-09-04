@@ -115,10 +115,7 @@ const textReply = (message, response) => {
     response.send(new TextMessage(bot_message));
 }
 
-const richMediaDemo = (message, response) => {
-    let message = "Here is sample text message";
-    response.send(new TextMessage(message));
-}
+
 
 function defaultReply(message, response){
     response.send(new TextMessage(`I don't quite understand your command`)).then(()=>{
