@@ -139,7 +139,7 @@ const richMediaReply = (message, response) => {
             "Columns": 6
         }]
     };
-    response.send(new RichMedia(bot_message));
+    response.send(new RichMediaMessage(bot_message));
 }
 
 
