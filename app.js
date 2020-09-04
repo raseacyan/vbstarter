@@ -30,7 +30,8 @@ firebase.initializeApp({
     "client_email": process.env.FIREBASE_CLIENT_EMAIL,
     "project_id": process.env.FIREBASE_PROJECT_ID,
   }),
-  databaseURL: "https://fir-b7a51.firebaseio.com"
+  databaseURL:process.env.FIREBASE_DB_URL
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET
 });
 
 let db = firebase.firestore(); 
