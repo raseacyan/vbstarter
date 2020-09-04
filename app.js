@@ -116,30 +116,30 @@ const textReply = (message, response) => {
 }
 
 const richMediaReply = (message, response) => {
-    let bot_message = {
-        "ButtonsGroupColumns": 6,
-        "ButtonsGroupRows": 2,
-        "BgColor": "#FFFFFF",
-        "Buttons": [{
-            "ActionBody": "http://www.google.com",
-            "ActionType": "open-url",
-            "BgMediaType": "picture",
-            "Image": "https://i.pinimg.com/originals/01/df/e5/01dfe56515362ce77a9651569d16c2d7.jpg",
-            "BgColor": "#000000",
-            "TextOpacity": 60,
-            "Rows": 4,
-            "Columns": 6
-        }, {
-            "ActionBody": "http://www.google.com",
-            "ActionType": "open-url",
-            "BgColor": "#85bb65",
-            "Text": "Buy",
-            "TextOpacity": 60,
-            "Rows": 1,
-            "Columns": 6
-        }]
-    };
-    response.send(new RichMediaMessage(bot_message));
+    const SAMPLE_RICH_MEDIA = {
+    "ButtonsGroupColumns": 6,
+    "ButtonsGroupRows": 2,
+    "BgColor": "#FFFFFF",
+    "Buttons": [{
+        "ActionBody": "http://www.website.com/go_here",
+        "ActionType": "open-url",
+        "BgMediaType": "picture",
+        "Image": "http://www.images.com/img.jpg",
+        "BgColor": "#000000",
+        "TextOpacity": 60,
+        "Rows": 4,
+        "Columns": 6
+    }, {
+        "ActionBody": "http://www.website.com/go_here",
+        "ActionType": "open-url",
+        "BgColor": "#85bb65",
+        "Text": "Buy",
+        "TextOpacity": 60,
+        "Rows": 1,
+        "Columns": 6
+    }]
+};
+    response.send(new RichMediaMessage(SAMPLE_RICH_MEDIA));
 }
 
 
