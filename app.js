@@ -16,10 +16,12 @@ const RichMediaMessage = require('viber-bot').Message.RichMedia;
 
 const app = express(); 
 
-
+app.get('/',function(req,res){    
+    res.send('your app is up and running');
+});
 
 app.get('/test',function(req,res){    
-    res.send('your app is up and running');
+    res.send('test');
 });
 
 
