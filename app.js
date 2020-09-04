@@ -85,7 +85,10 @@ bot.onTextMessage(/./, (message, response) => {
     switch(text){
         case "text":
             textDemo(message, response);
-            break;              
+            break; 
+        case "rich media":
+            richMediaDemo(message, response);
+            break;             
         case "who am i":
             whoAmI(message, response);
             break;       
@@ -105,6 +108,11 @@ bot.onTextMessage(/view/, (message, response) => {
 
 const whoAmI = (message, response) => {
     response.send(new TextMessage(`Hello ${response.userProfile.name}! It's so nice to meet you`));
+}
+
+const textDemo = (message, response) => {
+    let message = "Here is sample text message";
+    response.send(new TextMessage(message));
 }
 
 const textDemo = (message, response) => {
