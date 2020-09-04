@@ -134,7 +134,7 @@ const richMediaReply = (message, response) => {
         {
         "Columns":6,
                 "Rows":1,
-                "Text": doc.data().details,
+                "Text": "sample text",
                 "ActionType":"none",
                 "TextSize":"medium",
                 "TextVAlign":"middle",
@@ -144,7 +144,7 @@ const richMediaReply = (message, response) => {
             "Columns":6,
             "Rows":1,
             "ActionType":"reply",
-            "ActionBody": "delete:"+doc.id,
+            "ActionBody": "actionbody",
             "Text":"delete",
             "TextSize":"large",
             "TextVAlign":"middle",
