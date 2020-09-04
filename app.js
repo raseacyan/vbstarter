@@ -154,6 +154,7 @@ const richMediaReply = (message, response) => {
     };
 
     let bot_message = new RichMediaMessage(SAMPLE_RICH_MEDIA);
+    console.log('RICH MEDIA: ', bot_message);
     response.send(bot_message);
 }
 
@@ -177,6 +178,7 @@ const keyboardReply = (message, response) => {
     };
 
     let bot_message = new KeyboardMessage(SAMPLE_KEYBOARD);
+    console.log('KEYBOARD: ', bot_message);
     response.send(bot_message);
 }
 
