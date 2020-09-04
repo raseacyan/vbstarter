@@ -227,7 +227,7 @@ const keyboardReply = (message, response) => {
         ]
     };
 
-    let bot_message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
+    let bot_message = new KeyboardMessage(SAMPLE_KEYBOARD);
     response.send(bot_message);
 }
 
