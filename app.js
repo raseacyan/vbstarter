@@ -133,7 +133,7 @@ const pictureReply = (message, response) => {
 const richMediaReply = (message, response) => {
     const SAMPLE_RICH_MEDIA = {
     "ButtonsGroupColumns": 6,
-    "ButtonsGroupRows": 2,
+    "ButtonsGroupRows": 7,
     "BgColor": "#FFFFFF",
     "Buttons": [
         {
