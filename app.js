@@ -120,92 +120,40 @@ const textReply = (message, response) => {
 }
 
 const richMediaReply = (message, response) => {
-    let SAMPLE_MEDIA = {
-      "Type":"rich_media",
-      "ButtonsGroupColumns":6,
-      "ButtonsGroupRows":7,
-      "BgColor":"#FFFFFF",
-      "Buttons":[
-         {
-            "Columns":6,
-            "Rows":3,
-            "ActionType":"open-url",
-            "ActionBody":"https://www.google.com",
-            "Image":"http://html-test:8080/myweb/guy/assets/imageRMsmall2.png"
-         },
-         {
-            "Columns":6,
-            "Rows":2,
-            "Text":"<font color=#323232><b>Headphones with Microphone, On-ear Wired earphones</b></font><font color=#777777><br>Sound Intone </font><font color=#6fc133>$17.99</font>",
-            "ActionType":"open-url",
-            "ActionBody":"https://www.google.com",
-            "TextSize":"medium",
-            "TextVAlign":"middle",
-            "TextHAlign":"left"
-         },
-         {
+    const SAMPLE_RICH_MEDIA = {
+    "ButtonsGroupColumns": 6,
+    "ButtonsGroupRows": 2,
+    "BgColor": "#FFFFFF",
+    "Buttons": [
+        {
+        "Columns":6,
+        "Rows":5,
+        "ActionType":"none",           
+        "Image":"https://store-images.s-microsoft.com/image/apps.49795.13510798887304077.4ce9da47-503d-4e6e-9fb3-2e78a99788db.b6188938-8471-4170-83b8-7fc4d9d8af6a?mode=scale&q=90&h=270&w=270&background=%230078D7"
+        }, 
+        {
+        "Columns":6,
+                "Rows":1,
+                "Text": doc.data().details,
+                "ActionType":"none",
+                "TextSize":"medium",
+                "TextVAlign":"middle",
+                "TextHAlign":"left"
+        },
+        {
             "Columns":6,
             "Rows":1,
             "ActionType":"reply",
-            "ActionBody":"https://www.google.com",
-            "Text":"<font color=#ffffff>Buy</font>",
+            "ActionBody": "delete:"+doc.id,
+            "Text":"delete",
             "TextSize":"large",
             "TextVAlign":"middle",
             "TextHAlign":"middle",
-            "Image":"https://s14.postimg.org/4mmt4rw1t/Button.png"
-         },
-         {
-            "Columns":6,
-            "Rows":1,
-            "ActionType":"reply",
-            "ActionBody":"https://www.google.com",
-            "Text":"<font color=#8367db>MORE DETAILS</font>",
-            "TextSize":"small",
-            "TextVAlign":"middle",
-            "TextHAlign":"middle"
-         },
-         {
-            "Columns":6,
-            "Rows":3,
-            "ActionType":"open-url",
-            "ActionBody":"https://www.google.com",
-            "Image":"https://s16.postimg.org/wi8jx20wl/image_RMsmall2.png"
-         },
-         {
-            "Columns":6,
-            "Rows":2,
-            "Text":"<font color=#323232><b>Hanes Men's Humor Graphic T-Shirt</b></font><font color=#777777><br>Hanes</font><font color=#6fc133>$10.99</font>",
-            "ActionType":"open-url",
-            "ActionBody":"https://www.google.com",
-            "TextSize":"medium",
-            "TextVAlign":"middle",
-            "TextHAlign":"left"
-         },
-         {
-            "Columns":6,
-            "Rows":1,
-            "ActionType":"reply",
-            "ActionBody":"https://www.google.com",
-            "Text":"<font color=#ffffff>Buy</font>",
-            "TextSize":"large",
-            "TextVAlign":"middle",
-            "TextHAlign":"middle",
-            "Image":"https://s14.postimg.org/4mmt4rw1t/Button.png"
-         },
-         {
-            "Columns":6,
-            "Rows":1,
-            "ActionType":"reply",
-            "ActionBody":"https://www.google.com",
-            "Text":"<font color=#8367db>MORE DETAILS</font>",
-            "TextSize":"small",
-            "TextVAlign":"middle",
-            "TextHAlign":"middle"
-         }
-      ]
-   };
+        }
+    ]
+    };
 
-    let bot_message = new KeyboardMessage(SAMPLE_MEDIA);
+    let bot_message = new RichMediaMessage(SAMPLE_RICH_MEDIA);
     response.send(bot_message);
 }
 
