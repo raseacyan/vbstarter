@@ -110,7 +110,7 @@ const whoAmI = (message, response) => {
     response.send(new TextMessage(`Hello ${response.userProfile.name}! It's so nice to meet you`));
 }
 
-function defaultRepy(message, response){
+function defaultReply(message, response){
     response.send(new TextMessage(`I don't quite understand your command`)).then(()=>{
                 return response.send(new TextMessage(`To view tasks, type 'view'`)).then(()=>{
                    return response.send(new TextMessage(`To add new task, type 'new'`)).then(()=>{
