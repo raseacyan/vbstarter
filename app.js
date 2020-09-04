@@ -166,7 +166,11 @@ const richMediaReply = (message, response) => {
 
     let bot_message = new RichMediaMessage(SAMPLE_RICH_MEDIA);
     console.log('RICH MEDIA: ', bot_message);
-    response.send(bot_message).then(success => console.log(success)).catch(error => console.log(error.message);
+    response.send(bot_message).catch(error=>{
+        console.error('ERROR', error);
+        process.exit(1);
+    });
+
 }
 
 
