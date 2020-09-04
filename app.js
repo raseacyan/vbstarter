@@ -65,7 +65,7 @@ app.listen(process.env.PORT || 8080, () => {
  
 
 
-bot.onError(err => console.log(err));
+bot.onError(err => console.log('ON ERR: ',err));
 
 
 bot.onSubscribe(response => {
