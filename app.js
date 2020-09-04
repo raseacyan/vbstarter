@@ -1,11 +1,11 @@
 const fetch = require('node-fetch');
 const firebase = require("firebase-admin");
 const express = require('express');
-const ejs = require("ejs"),
-const body_parser = require('body-parser'),
-const { uuid } = require('uuidv4'),
-const {format} = require('util'),
-const multer  = require('multer'), 
+const ejs = require("ejs");
+const body_parser = require('body-parser');
+const { uuid } = require('uuidv4');
+const {format} = require('util');
+const multer  = require('multer');
 
 const ViberBot  = require('viber-bot').Bot;
 const BotEvents = require('viber-bot').Events;
