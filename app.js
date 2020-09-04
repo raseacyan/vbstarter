@@ -120,7 +120,7 @@ const textReply = (message, response) => {
 }
 
 const richMediaReply = (message, response) => {
-    let bot_message = {
+    let SAMPLE_MEDIA = {
       "Type":"rich_media",
       "ButtonsGroupColumns":6,
       "ButtonsGroupRows":7,
@@ -205,7 +205,8 @@ const richMediaReply = (message, response) => {
       ]
    };
 
-    response.send(new RichMediaMessage(bot_message));
+    let bot_message = new KeyboardMessage(SAMPLE_MEDIA);
+    response.send(bot_message);
 }
 
 
