@@ -19,6 +19,7 @@ const PictureMessage = require('viber-bot').Message.Picture;
 
 const app = express(); 
 
+app.use(body_parser.json());
 app.use(body_parser.urlencoded());
 
 app.set('view engine', 'ejs');
@@ -167,7 +168,7 @@ const textReply = (message, response) => {
 }
 
 const urlReply = (message, response) => {
-    user_id = repsonse.userProfile.id;
+    user_id = response.userProfile.id;
     let bot_message = new UrlMessage(process.env.APP_URL + '/test/');   
     response.send(bot_message);
 }
