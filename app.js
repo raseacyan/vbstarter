@@ -127,7 +127,10 @@ const textReply = (message, response) => {
 const pictureReply = (message, response) => {
     const bot_message = new PictureMessage('https://upload.wikimedia.org/wikipedia/en/6/69/Effy_Stonem.jpg');
 
-    response.send(new PictureMessage(bot_message));
+    response.send(bot_message).catch(error=>{
+        console.error('ERROR', error);
+        process.exit(1);
+    });
 }
 
 const richMediaReply = (message, response) => {
@@ -140,7 +143,7 @@ const richMediaReply = (message, response) => {
         "Columns":6,
         "Rows":5,
         "ActionType":"none",           
-        "Image":"https://store-images.s-microsoft.com/image/apps.49795.13510798887304077.4ce9da47-503d-4e6e-9fb3-2e78a99788db.b6188938-8471-4170-83b8-7fc4d9d8af6a?mode=scale&q=90&h=270&w=270&background=%230078D7"
+        "Image":"https://upload.wikimedia.org/wikipedia/en/6/69/Effy_Stonem.jpg"
         }, 
         {
         "Columns":6,
@@ -165,7 +168,7 @@ const richMediaReply = (message, response) => {
     };
 
     let bot_message = new RichMediaMessage(SAMPLE_RICH_MEDIA);
-    console.log('RICH MEDIA: ', bot_message);
+    
     response.send(bot_message).catch(error=>{
         console.error('ERROR', error);
         process.exit(1);
