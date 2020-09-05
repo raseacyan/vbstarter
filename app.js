@@ -176,7 +176,8 @@ const richMediaReply = (message, response) => {
 
 }
 
-
+//https://developers.viber.com/docs/tools/keyboard-examples/
+//
 const keyboardReply = (message, response) => {
     let SAMPLE_KEYBOARD = {
         "Type": "keyboard",
@@ -190,8 +191,8 @@ const keyboardReply = (message, response) => {
                 "BgMedia": "http://www.url.by/test.gif",
                 "BgLoop": true,
                 "ActionType": "open-url",
-                "ActionBody": "www.tut.by",
-                "Image": "www.tut.by/img.jpg",
+                "ActionBody": "https://en.wikipedia.org/wiki/Effy_Stonem",
+                "Image": "https://upload.wikimedia.org/wikipedia/en/6/69/Effy_Stonem.jpg",
                 "Text": "Key text",
                 "TextVAlign": "middle",
                 "TextHAlign": "center",
