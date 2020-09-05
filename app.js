@@ -19,7 +19,7 @@ const PictureMessage = require('viber-bot').Message.Picture;
 
 const app = express(); 
 
-app.use(body_parser.json());
+//app.use(body_parser.json());
 app.use(body_parser.urlencoded());
 
 app.set('view engine', 'ejs');
