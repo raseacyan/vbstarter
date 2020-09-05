@@ -16,8 +16,10 @@ const KeyboardMessage = require('viber-bot').Message.Keyboard;
 const PictureMessage = require('viber-bot').Message.Picture;
 
 
-
 const app = express(); 
+
+
+let user_id = '';
 
 // Creating the bot with access token, name and avatar
 const bot = new ViberBot({
@@ -34,7 +36,7 @@ app.use(body_parser.urlencoded());
 app.set('view engine', 'ejs');
 app.set('views', __dirname+'/views');
 
-let user_id = '';
+
 
 app.get('/',function(req,res){    
     res.send('your app is up and running');
@@ -65,7 +67,7 @@ app.post('/test',function(req,res){
     fetch('https://chatapi.viber.com/pa/send_message', {
         method: 'post',
         body:    JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-Viber-Auth-Token': process.env.AUTH_TOKEN },
     })
     .then(res => res.json())
     .then(json => console.log(json))   
@@ -165,7 +167,9 @@ const textReply = (message, response) => {
 }
 
 const urlReply = (message, response) => {
+
     user_id = response.userProfile.id;
+
     let bot_message = new UrlMessage(process.env.APP_URL + '/test/');   
     response.send(bot_message);
 }
