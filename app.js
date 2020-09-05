@@ -19,16 +19,46 @@ const PictureMessage = require('viber-bot').Message.Picture;
 
 const app = express(); 
 
+app.use(body_parser.json());
+app.use(body_parser.urlencoded());
+
+app.set('view engine', 'ejs');
+app.set('views', __dirname+'/views');
+
+let user_id = '';
+
 app.get('/',function(req,res){    
     res.send('your app is up and running');
 });
 
 app.get('/test',function(req,res){    
-    res.send('test');
+     res.render('test.ejs');
 });
 
-app.post('/test',function(req,res){    
-    res.send('test');
+app.post('/test',function(req,res){
+
+    console.log('USER ID', user_id);
+
+    let data = {
+       "receiver":user_id,
+       "min_api_version":1,
+       "sender":{
+          "name":"Viber Bot",
+          "avatar":"http://avatar.example.com"
+       },
+       "tracking_data":"tracking data",
+       "type":"text",
+       "text":"Thank you!"
+    }
+
+    fetch('https://chatapi.viber.com/pa/send_message', {
+        method: 'post',
+        body:    JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+    })
+    .then(res => res.json())
+    .then(json => console.log(json))    
+    
 });
 
 
@@ -133,7 +163,8 @@ const textReply = (message, response) => {
 }
 
 const urlReply = (message, response) => {
-    let bot_message = new UrlMessage(process.env.APP_URL + '/test');   
+    user_id = repsonse.userProfile.id;
+    let bot_message = new UrlMessage(process.env.APP_URL + '/test/');   
     response.send(bot_message);
 }
 
