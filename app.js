@@ -26,6 +26,10 @@ app.get('/test',function(req,res){
     res.send('test');
 });
 
+app.post('/test',function(req,res){    
+    res.send('test');
+});
+
 
 
 
@@ -121,6 +125,7 @@ const whoAmI = (message, response) => {
 
 const textReply = (message, response) => {
     let bot_message = `You have sent message: ${message.text}`;
+    console.log("TEXT REPLY", bot_message);
     response.send(new TextMessage(bot_message));
 }
 
@@ -177,7 +182,7 @@ const richMediaReply = (message, response) => {
 }
 
 //https://developers.viber.com/docs/tools/keyboard-examples/
-//
+
 const keyboardReply = (message, response) => {
     let SAMPLE_KEYBOARD = {
         "Type": "keyboard",
