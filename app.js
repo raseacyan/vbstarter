@@ -19,7 +19,16 @@ const PictureMessage = require('viber-bot').Message.Picture;
 
 const app = express(); 
 
-//app.use(body_parser.json());
+// Creating the bot with access token, name and avatar
+const bot = new ViberBot({
+    authToken: process.env.AUTH_TOKEN, // <--- Paste your token here
+    name: "Viber Bot",  // <--- Your bot name here
+    avatar: "http://api.adorable.io/avatar/200/isitup" // It is recommended to be 720x720, and no more than 100kb.
+});
+
+app.use("/viber/webhook", bot.middleware());
+
+app.use(body_parser.json());
 app.use(body_parser.urlencoded());
 
 app.set('view engine', 'ejs');
@@ -78,18 +87,6 @@ firebase.initializeApp({
 });
 
 let db = firebase.firestore(); 
-
-
-
-
-// Creating the bot with access token, name and avatar
-const bot = new ViberBot({
-    authToken: process.env.AUTH_TOKEN, // <--- Paste your token here
-    name: "Viber Bot",  // <--- Your bot name here
-    avatar: "http://api.adorable.io/avatar/200/isitup" // It is recommended to be 720x720, and no more than 100kb.
-});
-
-app.use("/viber/webhook", bot.middleware());
 
 
 
