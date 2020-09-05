@@ -183,14 +183,20 @@ const keyboardReply = (message, response) => {
         "Revision": 1,
         "Buttons": [
             {
-                "Columns": 3,
-                "Rows": 2,
-                "BgColor": "#e6f5ff",
-                "BgMedia": "http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg",
-                "BgMediaType": "picture",
+                "Columns": 6,
+                "Rows": 1,
+                "BgColor": "#2db9b9",
+                "BgMediaType": "gif",
+                "BgMedia": "http://www.url.by/test.gif",
                 "BgLoop": true,
-                "ActionType": "reply",
-                "ActionBody": "Yes"
+                "ActionType": "open-url",
+                "ActionBody": "www.tut.by",
+                "Image": "www.tut.by/img.jpg",
+                "Text": "Key text",
+                "TextVAlign": "middle",
+                "TextHAlign": "center",
+                "TextOpacity": 60,
+                "TextSize": "regular"
             }
         ]
     };
