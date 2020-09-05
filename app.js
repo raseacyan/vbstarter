@@ -93,6 +93,9 @@ bot.onTextMessage(/./, (message, response) => {
         case "text":
             textReply(message, response);
             break; 
+        case "url":
+            urlReply(message, response);
+            break;
         case "picture":
             pictureReply(message, response);
             break;
@@ -124,9 +127,13 @@ const whoAmI = (message, response) => {
 }
 
 const textReply = (message, response) => {
-    let bot_message = `You have sent message: ${message.text}`;
-    console.log("TEXT REPLY", response);
-    response.send(new TextMessage(bot_message));
+    let bot_message = TextMessage(`You have sent message: ${message.text}`);    
+    response.send(bot_message);
+}
+
+const urlReply = (message, response) => {
+    let bot_message = new UrlMessage(process.env.APP_URL + '/test');   
+    response.send(bot_message);
 }
 
 const pictureReply = (message, response) => {
