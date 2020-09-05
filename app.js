@@ -60,7 +60,7 @@ app.post('/test',function(req,res){
        "text":"Thank you!"
     }
 
-    /*
+    
 
     fetch('https://chatapi.viber.com/pa/send_message', {
         method: 'post',
@@ -68,7 +68,7 @@ app.post('/test',function(req,res){
         headers: { 'Content-Type': 'application/json' },
     })
     .then(res => res.json())
-    .then(json => console.log(json))   */ 
+    .then(json => console.log(json))   
     
 });
 
