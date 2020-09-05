@@ -9,7 +9,7 @@
   <body>
   
   
-	<form action="#" method="post">
+	<form id="form" action="#" method="post">
     <labelf for="name">What is your name</label>
     <input type="text" name="name"/>
     <input type="submit" name="submit"/>
@@ -17,9 +17,16 @@
   </form>
 
 
+  <script>
+  const windowClose = () => {
+    window.close();
+  }
+
+      
+  document.getElementById("form").addEventListener("submit", windowClose);  
 	
  
-
+  </script>
   </body>
 
 </html>
